@@ -1,0 +1,10 @@
+name: byte_flow
+version: 0.0.1
+authors:
+  - Adib Mohsin <adibmohsin.root@gmail.com>
+description: Array manipulation utilites for dart , inspired from lodash
+homepage: https://github.com/pacifio/byte_flow
+environment:
+  sdk: ">=2.0.0-dev.36.0 <3.0.0"
+dev_dependencies:
+  test: ^1.9.4
