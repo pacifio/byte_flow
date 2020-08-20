@@ -11,3 +11,5 @@ export './functions/arrays/head.dart';
 export './functions/arrays/flatten.dart';
 export './functions/arrays/pairs.dart';
 export './functions/arrays/initial.dart';
+export './functions/arrays/map.dart';
+export './functions/arrays/intersection.dart';
