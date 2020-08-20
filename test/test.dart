@@ -63,4 +63,26 @@ main() {
   test('head', () {
     expect(initial([1, 2, 3]), [1, 2]);
   });
+
+  test('map', () {
+    expect(
+        map([4, 8], (n, index, array) {
+          return n * n;
+        }),
+        [16, 64]);
+    expect(
+        map([4, 8], (n, index, array) {
+          return n * 0;
+        }),
+        [0, 0]);
+  });
+
+  test('intersection', () {
+    final lists = [
+      [1, 2, 3],
+      [2, 4, 5],
+      [2, 8, 9]
+    ];
+    expect(intersect(lists), [2]);
+  });
 }
