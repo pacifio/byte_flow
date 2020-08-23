@@ -60,7 +60,7 @@ main() {
         {'a': 1, 'b': 2});
   });
 
-  test('head', () {
+  test('initial', () {
     expect(initial([1, 2, 3]), [1, 2]);
   });
 
@@ -84,5 +84,18 @@ main() {
       [2, 8, 9]
     ];
     expect(intersect(lists), [2]);
+  });
+
+  test("join", () {
+    expect(join(['a', 'b', 'c'], '~'), 'a~b~c');
+  });
+
+  test('last', () {
+    expect(last(["Dart", "Javascript", "Swift"]), "Swift");
+  });
+
+  test('nth', () {
+    expect(nth(['a', 'b', 'c', 'd'], 2), 'c');
+    expect(nth(['a', 'b', 'c', 'd'], -1), 'd');
   });
 }

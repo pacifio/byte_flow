@@ -13,3 +13,6 @@ export './functions/arrays/pairs.dart';
 export './functions/arrays/initial.dart';
 export './functions/arrays/map.dart';
 export './functions/arrays/intersection.dart';
+export './functions/arrays/join.dart';
+export './functions/arrays/last.dart';
+export './functions/arrays/nth.dart';
