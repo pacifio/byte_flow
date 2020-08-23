@@ -2,6 +2,11 @@ import 'package:test/test.dart';
 import '../lib/byte_flow.dart';
 
 main() {
+  print(unzip([
+    ['a', 1, true],
+    ['b', 2, false]
+  ]));
+
   test('chunk', () {
     expect(chunk(['a', 'b', 'c', 'd'], 2), [
       ['a', 'b'],
@@ -97,5 +102,30 @@ main() {
   test('nth', () {
     expect(nth(['a', 'b', 'c', 'd'], 2), 'c');
     expect(nth(['a', 'b', 'c', 'd'], -1), 'd');
+  });
+
+  test('sortedIndex', () {
+    expect(sortedIndex([30, 50], 60), 2);
+  });
+
+  test('tail', () {
+    expect(tail([1, 2, 3]), [2, 3]);
+  });
+
+  test('take', () {
+    expect(take([1, 2, 3], 2), [1, 2]);
+  });
+
+  test('takeRight', () {
+    expect(takeRight([1, 2, 3], 2), [2, 3]);
+  });
+
+  test('union', () {
+    expect(
+        union([
+          [2],
+          [1, 2]
+        ]),
+        [2, 1]);
   });
 }
