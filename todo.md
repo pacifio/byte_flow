@@ -2,3 +2,4 @@
 * ```difference()```
 * ```dropWhile()```
 * ```pull()```
+* ```uniq()```
