@@ -5,6 +5,6 @@ authors:
 description: Byte flow is a pure dart , dependency less library that provides common utility functions for dart lists and arrays following the functional programming paradigm , inspired heavily by the Javascript lodash library
 homepage: https://github.com/pacifio/byte_flow
 environment:
-  sdk: ">=2.0.0-dev.36.0 <3.0.0"
+  sdk: ">=2.1.0 <3.0.0"
 dev_dependencies:
   test: ^1.9.4

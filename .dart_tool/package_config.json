@@ -311,10 +311,10 @@
       "name": "byte_flow",
       "rootUri": "../",
       "packageUri": "lib/",
-      "languageVersion": "2.0"
+      "languageVersion": "2.1"
     }
   ],
-  "generated": "2020-08-24T10:59:03.866581Z",
+  "generated": "2020-08-24T11:07:39.228872Z",
   "generator": "pub",
   "generatorVersion": "2.8.4"
 }
