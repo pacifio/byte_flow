@@ -7,6 +7,10 @@ void _testArrayFunctions() {
       ['a', 'b'],
       ['c', 'd']
     ]);
+    expect(chunk(['a', 'b', 'c', 'd'], 3), [
+      ['a', 'b', 'c'],
+      ['d']
+    ]);
   });
 
   test('slice', () {

@@ -1,4 +1,9 @@
 /// Creates a slice of `array` from `start` up to, but not including, `end`.
+/// Example
+/// ```dart
+/// _.slice([1, 2, 3, 4], 2);
+/// // Returns [3, 4]
+/// ```
 List slice(List array, [int start = 0, int end]) {
   int length = array.length;
   if (length <= 0) {

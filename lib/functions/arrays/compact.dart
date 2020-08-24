@@ -1,5 +1,10 @@
 /// Creates an array with all falsey values removed. The values `false`, `null`,
-/// * `0`, `""`, and `NaN` are falsey.
+/// `0`, `""`, and `NaN` are falsey.
+/// Example
+/// ```dart
+/// _.compact([0, 1, false, 2, '', 3]);
+/// // Returns [1, 2, 3]
+/// ```
 List compact(List array) {
   List result = [];
 
