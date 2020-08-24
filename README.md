@@ -1,4 +1,5 @@
 # Byte flow
+[![Build Status](https://travis-ci.org/pacifio/byte_flow.svg?branch=master)](https://travis-ci.org/pacifio/byte_flow)
 
 Byte flow is a pure dart , dependency less library that provides common utility functions for dart lists and arrays following the functional programming paradigm , inspired heavily by the Javascript lodash library
 
