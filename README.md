@@ -24,7 +24,7 @@ import 'package:byte_flow/byte_flow.dart';
 
 Byte flow contains helpful utility functions for lists and strings but it's main target is to provide developers rich set of array utilites .
 
-# Array
+## Array
 
 First import the library like this
 ```dart
@@ -106,3 +106,227 @@ _.fill(List(3), 4);
 // Returns [4, 4, 4]
 ```
 ***
+### `_.findIndex(List array, dynamic element)`
+This method uses dart's default `List.indexOf()`
+
+Example
+```dart
+_.findIndex(["Jack", "Yash", "Adib", "Alex"], "Adib");
+// Returns 2
+```
+***
+### `_.findLastIndex(List array, dynamic element)`
+This method finds the item in the array from right / last using dart's ```List.indexOf()``` method
+
+Example
+```dart
+_.findLastIndex(["Jack", "Yash", "Adib", "Adib"], "Adib");
+// Returns 0
+```
+***
+### `_.head(List array)`
+Finds the first element in the array Uses dart's ```List.first``` property
+
+Example
+```dart
+_.head(["Dart", "Javascript", "Swift"]);
+// Returns "Dart"
+```
+***
+### `_.flatten(List array)`
+Flatten a list , Credit goes to [Justin Fagnani](https://stackoverflow.com/users/192153/justin-fagnani)
+
+Example
+```dart
+_.flatten([
+  [1, 2, 3],
+  ['a', 'b', 'c'],
+  [true, false, true]
+]);
+// Returns [1, 2, 3, 'a', 'b', 'c', true, false, true]
+```
+***
+### `_.pairs(List pairs)`
+This method returns an `map` composed from key-value ```pairs```. 
+
+Example
+```dart
+_.pairs([
+  ['a', 1],
+  ['b', 2]
+]);
+// Returns {'a': 1, 'b': 2}
+```
+***
+### `_.initial(List array)```
+Gets all but the last element of array.
+
+Example
+```dart
+_.initial([1, 2, 3]);
+// Returns [1, 2]
+
+_.initial([1, 2, 3, 'a', 'b', 'c']);
+// Returns [1, 2, 3, 'a', 'b']
+```
+***
+### `_.map(List array, Function(dynamic element, int index, List array) iteratee)`
+Creates an array of values by running each element of `array` thru `iteratee`. The iteratee is invoked with three arguments: (value, index, array).
+
+Example
+```dart
+square(n, index, array) {
+  return n*n;
+}
+_.map([4, 8], square);
+// Returns [16, 64]
+
+_.map([4, 8], (n, index, array) {
+  return n * 0;
+});
+// Returns [0, 0]
+```
+***
+### `_.intersect(List<List> arrays)`
+Creates an array of unique values that are included in all given arrays
+
+Example
+```dart
+final lists = [
+  [1, 2, 3],
+  [2, 4, 5],
+  [2, 8, 9]
+];
+_.intersect(lists);
+// Returns [2]
+```
+***
+### `_.join(List array, [String separator = ','])`
+Converts all elements in array into a string separated by separator. Uses dart's ```List.join()```
+
+Example
+```dart
+_.join(['a', 'b', 'c'], '~');
+// Returns 'a~b~c'
+```
+***
+### `_.last(List array)`
+Gets the last element of array. Uses dart's ```List.last``` property
+
+Example
+```dart
+_.last(["Dart", "Javascript", "Swift"]);
+// Returns "Swift"
+```
+***
+### `_.nth(List array, int n)`
+Gets the element at index `n` of `array`. If `n` is negative, the nth element from the end is returned.
+
+Example
+```dart
+_.nth(['a', 'b', 'c', 'd'], 2);
+// Returns 'c'
+
+_.nth(['a', 'b', 'c', 'd'], -1);
+// Returns 'd'
+```
+***
+### `_.sortedIndex(List array, dynamic value)`
+Uses a binary search to determine the lowest index at which value should be inserted into array in order to maintain its sort order. Returns the index at which value should be inserted into array.
+
+Example
+```dart
+_.sortedIndex([30, 50], 60);
+// Returns 2
+
+_.sortedIndex([30, 50], 40);
+// Returns 1
+
+_.sortedIndex([30, 50], 30);
+// Returns 0
+```
+***
+### `_.tail(List array)`
+Gets all but the first element of array.
+
+Example
+```dart
+_.tail([1, 2, 3]);
+// Returns [2, 3]
+```
+***
+### `_.take(List array, [int n = 1])`
+Creates a slice of array with n elements taken from the beginning. Uses dart's native ```List.take(n)``` method
+
+Example
+```dart
+_.take([1, 2, 3], 2);
+// Returns [1, 2]
+```
+***
+### `_.takeRight(List array, [int n = 1])`
+Creates a slice of array with n elements taken from the end.
+
+Example
+```dart
+takeRight([1, 2, 3])
+// => [3]
+takeRight([1, 2, 3], 2)
+// => [2, 3]
+takeRight([1, 2, 3], 5)
+// => [1, 2, 3]
+takeRight([1, 2, 3], 0)
+// => []
+```
+***
+### `_.union(List<List> arrays)`
+Creates an array of unique values, in order
+
+Example
+```dart
+_.union([
+  [2],
+  [1, 2]
+]);
+
+// Returns [2, 1]
+```
+***
+### `_.unzip(List array)`
+This method Returns the new array of regrouped elements
+
+Example
+```dart
+_.unzip([['a', 1, true], ['b', 2, false]]);
+// Returns [['a', 'b'], [1, 2], [true, false]]
+```
+***
+### `_.zip(List a, List b)`
+Zips two arrays , [Credit](https://stackoverflow.com/questions/22015684/how-do-i-zip-two-arrays-in-javascript)
+
+Example
+```dart
+_.zip(['a', 'b', 'c'], [1, 2, 3]);
+// Returns [['a', 1],['b', 2],['c', 3]]
+```
+***
+### `_.duplicate(List array)`
+Find duplicate items in an array .
+
+Example
+```dart
+_.duplicate([10, 12, 9, 21, 1, 2, 10]);
+// Returns [10]
+```
+
+## String
+Byte flow libraries string utility collection is poor but still under development . The following functions are stable
+
+### `_.capitalize(String text)`
+Capitalizes the given string
+
+Example
+```dart
+_.capitalize("hello world !");
+// Returns "Hello world !"
+```
