@@ -74,10 +74,12 @@
 </ol>)
     </section>
     <section class="desc markdown">
-      <p>Creates an array with all falsey values removed. The values <code>false</code>, <code>null</code>,</p>
-<ul>
-<li><code>0</code>, <code>""</code>, and <code>NaN</code> are falsey.</li>
-</ul>
+      <p>Creates an array with all falsey values removed. The values <code>false</code>, <code>null</code>,
+<code>0</code>, <code>""</code>, and <code>NaN</code> are falsey.
+Example</p>
+<pre class="language-dart"><code class="language-dart">_.compact([0, 1, false, 2, '', 3]);
+// Returns [1, 2, 3]
+</code></pre>
     </section>
     
     <section class="summary source-code" id="source">

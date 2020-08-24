@@ -75,10 +75,15 @@
 </ol>)
     </section>
     <section class="desc markdown">
-      <ul>
-<li>Creates an array of elements split into groups the length of <code>size</code>.
-If <code>array</code> can't be split evenly, the final chunk will be the remaining elements.</li>
-</ul>
+      <p>Creates an array of elements split into groups the length of <code>size</code>.
+If <code>array</code> can't be split evenly, the final chunk will be the remaining elements.
+Example</p>
+<pre class="language-dart"><code class="language-dart">_.chunk(['a', 'b', 'c', 'd'], 2);
+// Returns ['a', 'b'],['c', 'd']
+
+_.chunk(['a', 'b', 'c', 'd'], 3)
+// Returns ['a', 'b', 'c'],['d']
+</code></pre>
     </section>
     
     <section class="summary source-code" id="source">

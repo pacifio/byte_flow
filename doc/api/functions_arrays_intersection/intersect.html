@@ -4,8 +4,8 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
-  <meta name="description" content="API docs for the slice function from the slice library, for the Dart programming language.">
-  <title>slice function - slice library - Dart API</title>
+  <meta name="description" content="API docs for the intersect function from the intersection library, for the Dart programming language.">
+  <title>intersect function - intersection library - Dart API</title>
 
   
   <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500,400i,400,300|Source+Sans+Pro:400,300,700" rel="stylesheet">
@@ -25,10 +25,10 @@
   <button id="sidenav-left-toggle" type="button">&nbsp;</button>
   <ol class="breadcrumbs gt-separated dark hidden-xs">
     <li><a href="../index.html">byte_flow</a></li>
-    <li><a href="../functions_arrays_slice/functions_arrays_slice-library.html">slice</a></li>
-    <li class="self-crumb">slice function</li>
+    <li><a href="../functions_arrays_intersection/functions_arrays_intersection-library.html">intersection</a></li>
+    <li class="self-crumb">intersect function</li>
   </ol>
-  <div class="self-name">slice</div>
+  <div class="self-name">intersect</div>
   <form class="search navbar-right" role="search">
     <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
   </form>
@@ -45,19 +45,19 @@
     
     <ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
       <li><a href="../index.html">byte_flow</a></li>
-      <li><a href="../functions_arrays_slice/functions_arrays_slice-library.html">slice</a></li>
-      <li class="self-crumb">slice function</li>
+      <li><a href="../functions_arrays_intersection/functions_arrays_intersection-library.html">intersection</a></li>
+      <li class="self-crumb">intersect function</li>
     </ol>
     
-    <h5>slice library</h5>
+    <h5>intersection library</h5>
     <ol>
     
     
     
     
     
-      <li class="section-title"><a href="../functions_arrays_slice/functions_arrays_slice-library.html#functions">Functions</a></li>
-      <li><a href="../functions_arrays_slice/slice.html">slice</a></li>
+      <li class="section-title"><a href="../functions_arrays_intersection/functions_arrays_intersection-library.html#functions">Functions</a></li>
+      <li><a href="../functions_arrays_intersection/intersect.html">intersect</a></li>
     
     
     
@@ -65,49 +65,33 @@
   </div><!--/.sidebar-offcanvas-left-->
 
   <div id="dartdoc-main-content" class="col-xs-12 col-sm-9 col-md-8 main-content">
-      <div><h1><span class="kind-function">slice</span> function </h1></div>
+      <div><h1><span class="kind-function">intersect</span> function </h1></div>
 
     <section class="multi-line-signature">
-        <span class="returntype">List</span>
-                <span class="name ">slice</span>
-(<wbr><ol class="parameter-list"><li><span class="parameter" id="slice-param-array"><span class="type-annotation">List</span> <span class="parameter-name">array</span>, </span></li>
-<li><span class="parameter" id="slice-param-start">[<span class="type-annotation">int</span> <span class="parameter-name">start</span> = <span class="default-value">0</span>, </span></li>
-<li><span class="parameter" id="slice-param-end"><span class="type-annotation">int</span> <span class="parameter-name">end</span>]</span></li>
+        <span class="returntype">dynamic</span>
+                <span class="name ">intersect</span>
+(<wbr><ol class="parameter-list"><li><span class="parameter" id="intersect-param-arrays"><span class="type-annotation">List<span class="signature">&lt;<wbr><span class="type-parameter">List</span>&gt;</span></span> <span class="parameter-name">arrays</span></span></li>
 </ol>)
     </section>
     <section class="desc markdown">
-      <p>Creates a slice of <code>array</code> from <code>start</code> up to, but not including, <code>end</code>.
+      <p>Creates an array of unique values that are included in all given arrays
 Example</p>
-<pre class="language-dart"><code class="language-dart">_.slice([1, 2, 3, 4], 2);
-// Returns [3, 4]
+<pre class="language-dart"><code class="language-dart">final lists = [
+  [1, 2, 3],
+  [2, 4, 5],
+  [2, 8, 9]
+];
+intersect(lists);
+// Returns [2]
+
 </code></pre>
     </section>
     
     <section class="summary source-code" id="source">
       <h2><span>Implementation</span></h2>
-      <pre class="language-dart"><code class="language-dart">List slice(List array, [int start = 0, int end]) {
-  int length = array.length;
-  if (length &lt;= 0) {
-    return [];
-  }
-  end = end == null ? length : end;
-  if (start &lt; 0) {
-    start = -start &gt; length ? 0 : (length + start);
-  }
-  end = end &gt; length ? length : end;
-  if (end &lt; 0) {
-    end += length;
-  }
-  length = start &gt; end ? 0 : ((end - start) &gt;&gt; 0);
-  start &gt;&gt;= 0;
-
-  int index = -1;
-  List result = new List(length);
-  while (++index &lt; length) {
-    result[index] = array[index + start];
-  }
-
-  return result;
+      <pre class="language-dart"><code class="language-dart">intersect(List&lt;List&gt; arrays) {
+  return arrays.fold&lt;Set&gt;(
+      arrays.first.toSet(), (a, b) =&gt; a.intersection(b.toSet()));
 }</code></pre>
     </section>
 

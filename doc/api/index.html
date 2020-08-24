@@ -49,21 +49,328 @@
     <h5 class="hidden-xs"><span class="package-name">byte_flow</span> <span class="package-kind">package</span></h5>
     <ol>
           <li class="section-title">Libraries</li>
+          <li><a href="helpers_baseFill/helpers_baseFill-library.html">baseFill</a></li>
+          <li><a href="helpers_baseSortedIndex/helpers_baseSortedIndex-library.html">baseSortedIndex</a></li>
           <li><a href="helpers_baseWhile/helpers_baseWhile-library.html">baseWhile</a></li>
           <li><a href="byte_flow/byte_flow-library.html">byte_flow</a></li>
+          <li><a href="functions_strings_capitalize/functions_strings_capitalize-library.html">capitalize</a></li>
           <li><a href="functions_arrays_chunk/functions_arrays_chunk-library.html">chunk</a></li>
           <li><a href="functions_arrays_compact/functions_arrays_compact-library.html">compact</a></li>
           <li><a href="functions_arrays_drop/functions_arrays_drop-library.html">drop</a></li>
           <li><a href="functions_arrays_dropRight/functions_arrays_dropRight-library.html">dropRight</a></li>
+          <li><a href="functions_arrays_duplicate/functions_arrays_duplicate-library.html">duplicate</a></li>
+          <li><a href="functions_arrays_fill/functions_arrays_fill-library.html">fill</a></li>
+          <li><a href="functions_arrays_findIndex/functions_arrays_findIndex-library.html">findIndex</a></li>
+          <li><a href="functions_arrays_findLastIndex/functions_arrays_findLastIndex-library.html">findLastIndex</a></li>
+          <li><a href="functions_arrays_flatten/functions_arrays_flatten-library.html">flatten</a></li>
+          <li><a href="functions_arrays_head/functions_arrays_head-library.html">head</a></li>
+          <li><a href="functions_arrays_initial/functions_arrays_initial-library.html">initial</a></li>
+          <li><a href="functions_arrays_intersection/functions_arrays_intersection-library.html">intersection</a></li>
+          <li><a href="functions_arrays_join/functions_arrays_join-library.html">join</a></li>
+          <li><a href="functions_arrays_last/functions_arrays_last-library.html">last</a></li>
+          <li><a href="functions_arrays_map/functions_arrays_map-library.html">map</a></li>
+          <li><a href="functions_arrays_nth/functions_arrays_nth-library.html">nth</a></li>
+          <li><a href="functions_arrays_pairs/functions_arrays_pairs-library.html">pairs</a></li>
           <li><a href="functions_arrays_slice/functions_arrays_slice-library.html">slice</a></li>
+          <li><a href="functions_arrays_sortedIndex/functions_arrays_sortedIndex-library.html">sortedIndex</a></li>
+          <li><a href="functions_arrays_tail/functions_arrays_tail-library.html">tail</a></li>
+          <li><a href="functions_arrays_take/functions_arrays_take-library.html">take</a></li>
+          <li><a href="functions_arrays_takeRight/functions_arrays_takeRight-library.html">takeRight</a></li>
+          <li><a href="functions_arrays_union/functions_arrays_union-library.html">union</a></li>
+          <li><a href="functions_arrays_unzip/functions_arrays_unzip-library.html">unzip</a></li>
+          <li><a href="functions_arrays_zip/functions_arrays_zip-library.html">zip</a></li>
     </ol>
   </div>
 
   <div id="dartdoc-main-content" class="col-xs-12 col-sm-9 col-md-8 main-content">
+      <section class="desc markdown">
+        <h1 id="byte-flow">Byte flow</h1>
+<p><a href="https://travis-ci.org/pacifio/byte_flow"><img src="https://travis-ci.org/pacifio/byte_flow.svg?branch=master" alt="Build Status"></a></p>
+<p>Byte flow is a pure dart , dependency less library that provides common utility functions for dart lists and arrays following the functional programming paradigm , inspired heavily by the Javascript lodash library</p>
+<h1 id="contents">Contents</h1>
+<p><a href="#Install">Install</a></p>
+<p><a href="#Functions">Functions</a></p>
+<ul>
+<li><a href="#Array">Array</a></li>
+<li><a href="#String">String</a></li>
+</ul>
+<h1 id="install">Install</h1>
+<pre class="language-yaml"><code class="language-yaml">dependencies:
+  byte_flow: ^0.0.1
+</code></pre>
+<p>After this run <code>flutter pub get</code>
+Then import the library</p>
+<pre class="language-dart"><code class="language-dart">import 'package:byte_flow/byte_flow.dart';
+</code></pre>
+<h1 id="functions">Functions</h1>
+<p>Byte flow contains helpful utility functions for lists and strings but it's main target is to provide developers rich set of array utilites .</p>
+<h2 id="array">Array</h2>
+<p>First import the library like this</p>
+<pre class="language-dart"><code class="language-dart">import 'package:byte_flow/byte_flow.dart' as _;
+</code></pre>
+<hr>
+<h3 id="_chunklist-array-int-size--1"><code>_.chunk(List array, [int size = 1])</code></h3>
+<p>Creates an array of elements split into groups the length of <code>size</code>. If <code>array</code> can't be split evenly, the final chunk will be the remaining elements.</p>
+<p>Example</p>
+<pre class="language-dart"><code class="language-dart">_.chunk(['a', 'b', 'c', 'd'], 2);
+// Returns ['a', 'b'],['c', 'd']
+
+_.chunk(['a', 'b', 'c', 'd'], 3)
+// Returns ['a', 'b', 'c'],['d']
+</code></pre>
+<hr>
+<h3 id="_slicelist-array-int-start--0-int-end"><code>_.slice(List array, [int start = 0, int end])</code></h3>
+<p>Creates a slice of <code>array</code> from <code>start</code> up to, but not including, <code>end</code>.</p>
+<p>Example</p>
+<pre class="language-dart"><code class="language-dart">_.slice([1, 2, 3, 4], 2);
+// Returns [3, 4]
+</code></pre>
+<hr>
+<h3 id="_compactlist-array"><code>_.compact(List array)</code></h3>
+<p>Creates an array with all falsey values removed. The values <code>false</code>, <code>null</code>,<code>0</code>, <code>""</code>, and <code>NaN</code> are falsey.</p>
+<p>Example</p>
+<pre class="language-dart"><code class="language-dart">_.compact([0, 1, false, 2, '', 3]);
+// Returns [1, 2, 3]
+
+_.compact([1, 2, 'some data', 2, '', 3, false, null]);
+// Returns [1, 2, 'some data', 2, 3]
+</code></pre>
+<hr>
+<h3 id="_droplist-array-int-n--1"><code>_.drop(List array, [int n = 1])</code></h3>
+<p>Creates a slice of <code>array</code> with <code>n</code> elements dropped from the beginning.</p>
+<p>Example</p>
+<pre class="language-dart"><code class="language-dart">_.drop([1, 2, 3]);
+// Returns [2,3]
+
+_.drop([1, 2, 3], 2);
+// Returns [3]
+
+_.drop([1, 2, 3], 5);
+// Returns []
+
+_.drop([1, 2, 3], 0);
+// Returns [1, 2, 3]
+</code></pre>
+<hr>
+<h3 id="_droprightlist-array-int-n--1"><code>_.dropRight(List array, [int n = 1])</code></h3>
+<p>Creates a slice of <code>array</code> with <code>n</code> elements dropRightped from the beginning.</p>
+<p>Example</p>
+<pre class="language-dart"><code class="language-dart">_.dropRight([1, 2, 3])
+// Returns [1,2]
+_.dropRight([1, 2, 3], 2)
+// Returns [1]
+_.dropRight([1, 2, 3], 5)
+// Returns []
+_.dropRight([1, 2, 3], 0)
+// Returns [1, 2, 3]
+</code></pre>
+<hr>
+<h3 id="_filllist-array-dynamic-value-int-start--0-int-end"><code>_.fill(List array, dynamic value, [int start = 0, int end])</code></h3>
+<p>Fills elements of <code>array</code> with <code>value</code> from <code>start</code> up to, but not including, <code>end</code>.</p>
+<p>Example</p>
+<pre class="language-dart"><code class="language-dart">_.fill(List(3), 4);
+// Returns [4, 4, 4]
+</code></pre>
+<hr>
+<h3 id="_findindexlist-array-dynamic-element"><code>_.findIndex(List array, dynamic element)</code></h3>
+<p>This method uses dart's default <code>List.indexOf()</code></p>
+<p>Example</p>
+<pre class="language-dart"><code class="language-dart">_.findIndex(["Jack", "Yash", "Adib", "Alex"], "Adib");
+// Returns 2
+</code></pre>
+<hr>
+<h3 id="_findlastindexlist-array-dynamic-element"><code>_.findLastIndex(List array, dynamic element)</code></h3>
+<p>This method finds the item in the array from right / last using dart's <code>List.indexOf()</code> method</p>
+<p>Example</p>
+<pre class="language-dart"><code class="language-dart">_.findLastIndex(["Jack", "Yash", "Adib", "Adib"], "Adib");
+// Returns 0
+</code></pre>
+<hr>
+<h3 id="_headlist-array"><code>_.head(List array)</code></h3>
+<p>Finds the first element in the array Uses dart's <code>List.first</code> property</p>
+<p>Example</p>
+<pre class="language-dart"><code class="language-dart">_.head(["Dart", "Javascript", "Swift"]);
+// Returns "Dart"
+</code></pre>
+<hr>
+<h3 id="_flattenlist-array"><code>_.flatten(List array)</code></h3>
+<p>Flatten a list , Credit goes to <a href="https://stackoverflow.com/users/192153/justin-fagnani">Justin Fagnani</a></p>
+<p>Example</p>
+<pre class="language-dart"><code class="language-dart">_.flatten([
+  [1, 2, 3],
+  ['a', 'b', 'c'],
+  [true, false, true]
+]);
+// Returns [1, 2, 3, 'a', 'b', 'c', true, false, true]
+</code></pre>
+<hr>
+<h3 id="_pairslist-pairs"><code>_.pairs(List pairs)</code></h3>
+<p>This method returns an <code>map</code> composed from key-value <code>pairs</code>. </p>
+<p>Example</p>
+<pre class="language-dart"><code class="language-dart">_.pairs([
+  ['a', 1],
+  ['b', 2]
+]);
+// Returns {'a': 1, 'b': 2}
+</code></pre>
+<hr>
+<h3 id="_initiallist-array">`_.initial(List array)```</h3>
+<p>Gets all but the last element of array.</p>
+<p>Example</p>
+<pre class="language-dart"><code class="language-dart">_.initial([1, 2, 3]);
+// Returns [1, 2]
+
+_.initial([1, 2, 3, 'a', 'b', 'c']);
+// Returns [1, 2, 3, 'a', 'b']
+</code></pre>
+<hr>
+<h3 id="_maplist-array-functiondynamic-element-int-index-list-array-iteratee"><code>_.map(List array, Function(dynamic element, int index, List array) iteratee)</code></h3>
+<p>Creates an array of values by running each element of <code>array</code> thru <code>iteratee</code>. The iteratee is invoked with three arguments: (value, index, array).</p>
+<p>Example</p>
+<pre class="language-dart"><code class="language-dart">square(n, index, array) {
+  return n*n;
+}
+_.map([4, 8], square);
+// Returns [16, 64]
+
+_.map([4, 8], (n, index, array) {
+  return n * 0;
+});
+// Returns [0, 0]
+</code></pre>
+<hr>
+<h3 id="_intersectlistlist-arrays"><code>_.intersect(List&lt;List&gt; arrays)</code></h3>
+<p>Creates an array of unique values that are included in all given arrays</p>
+<p>Example</p>
+<pre class="language-dart"><code class="language-dart">final lists = [
+  [1, 2, 3],
+  [2, 4, 5],
+  [2, 8, 9]
+];
+_.intersect(lists);
+// Returns [2]
+</code></pre>
+<hr>
+<h3 id="_joinlist-array-string-separator--"><code>_.join(List array, [String separator = ','])</code></h3>
+<p>Converts all elements in array into a string separated by separator. Uses dart's <code>List.join()</code></p>
+<p>Example</p>
+<pre class="language-dart"><code class="language-dart">_.join(['a', 'b', 'c'], '~');
+// Returns 'a~b~c'
+</code></pre>
+<hr>
+<h3 id="_lastlist-array"><code>_.last(List array)</code></h3>
+<p>Gets the last element of array. Uses dart's <code>List.last</code> property</p>
+<p>Example</p>
+<pre class="language-dart"><code class="language-dart">_.last(["Dart", "Javascript", "Swift"]);
+// Returns "Swift"
+</code></pre>
+<hr>
+<h3 id="_nthlist-array-int-n"><code>_.nth(List array, int n)</code></h3>
+<p>Gets the element at index <code>n</code> of <code>array</code>. If <code>n</code> is negative, the nth element from the end is returned.</p>
+<p>Example</p>
+<pre class="language-dart"><code class="language-dart">_.nth(['a', 'b', 'c', 'd'], 2);
+// Returns 'c'
+
+_.nth(['a', 'b', 'c', 'd'], -1);
+// Returns 'd'
+</code></pre>
+<hr>
+<h3 id="_sortedindexlist-array-dynamic-value"><code>_.sortedIndex(List array, dynamic value)</code></h3>
+<p>Uses a binary search to determine the lowest index at which value should be inserted into array in order to maintain its sort order. Returns the index at which value should be inserted into array.</p>
+<p>Example</p>
+<pre class="language-dart"><code class="language-dart">_.sortedIndex([30, 50], 60);
+// Returns 2
+
+_.sortedIndex([30, 50], 40);
+// Returns 1
+
+_.sortedIndex([30, 50], 30);
+// Returns 0
+</code></pre>
+<hr>
+<h3 id="_taillist-array"><code>_.tail(List array)</code></h3>
+<p>Gets all but the first element of array.</p>
+<p>Example</p>
+<pre class="language-dart"><code class="language-dart">_.tail([1, 2, 3]);
+// Returns [2, 3]
+</code></pre>
+<hr>
+<h3 id="_takelist-array-int-n--1"><code>_.take(List array, [int n = 1])</code></h3>
+<p>Creates a slice of array with n elements taken from the beginning. Uses dart's native <code>List.take(n)</code> method</p>
+<p>Example</p>
+<pre class="language-dart"><code class="language-dart">_.take([1, 2, 3], 2);
+// Returns [1, 2]
+</code></pre>
+<hr>
+<h3 id="_takerightlist-array-int-n--1"><code>_.takeRight(List array, [int n = 1])</code></h3>
+<p>Creates a slice of array with n elements taken from the end.</p>
+<p>Example</p>
+<pre class="language-dart"><code class="language-dart">takeRight([1, 2, 3])
+// =&gt; [3]
+takeRight([1, 2, 3], 2)
+// =&gt; [2, 3]
+takeRight([1, 2, 3], 5)
+// =&gt; [1, 2, 3]
+takeRight([1, 2, 3], 0)
+// =&gt; []
+</code></pre>
+<hr>
+<h3 id="_unionlistlist-arrays"><code>_.union(List&lt;List&gt; arrays)</code></h3>
+<p>Creates an array of unique values, in order</p>
+<p>Example</p>
+<pre class="language-dart"><code class="language-dart">_.union([
+  [2],
+  [1, 2]
+]);
+
+// Returns [2, 1]
+</code></pre>
+<hr>
+<h3 id="_unziplist-array"><code>_.unzip(List array)</code></h3>
+<p>This method Returns the new array of regrouped elements</p>
+<p>Example</p>
+<pre class="language-dart"><code class="language-dart">_.unzip([['a', 1, true], ['b', 2, false]]);
+// Returns [['a', 'b'], [1, 2], [true, false]]
+</code></pre>
+<hr>
+<h3 id="_ziplist-a-list-b"><code>_.zip(List a, List b)</code></h3>
+<p>Zips two arrays , <a href="https://stackoverflow.com/questions/22015684/how-do-i-zip-two-arrays-in-javascript">Credit</a></p>
+<p>Example</p>
+<pre class="language-dart"><code class="language-dart">_.zip(['a', 'b', 'c'], [1, 2, 3]);
+// Returns [['a', 1],['b', 2],['c', 3]]
+</code></pre>
+<hr>
+<h3 id="_duplicatelist-array"><code>_.duplicate(List array)</code></h3>
+<p>Find duplicate items in an array .</p>
+<p>Example</p>
+<pre class="language-dart"><code class="language-dart">_.duplicate([10, 12, 9, 21, 1, 2, 10]);
+// Returns [10]
+</code></pre>
+<h2 id="string">String</h2>
+<p>Byte flow libraries string utility collection is poor but still under development . The following functions are stable</p>
+<h3 id="_capitalizestring-text"><code>_.capitalize(String text)</code></h3>
+<p>Capitalizes the given string</p>
+<p>Example</p>
+<pre class="language-dart"><code class="language-dart">_.capitalize("hello world !");
+// Returns "Hello world !"
+</code></pre>
+      </section>
       
         <section class="summary">
             <h2>Libraries</h2>
           <dl>
+            <dt id="baseFill">
+              <span class="name"><a href="helpers_baseFill/helpers_baseFill-library.html">baseFill</a></span>             
+            </dt>
+            <dd>
+               
+            </dd>
+            <dt id="baseSortedIndex">
+              <span class="name"><a href="helpers_baseSortedIndex/helpers_baseSortedIndex-library.html">baseSortedIndex</a></span>             
+            </dt>
+            <dd>
+               
+            </dd>
             <dt id="baseWhile">
               <span class="name"><a href="helpers_baseWhile/helpers_baseWhile-library.html">baseWhile</a></span>             
             </dt>
@@ -72,6 +379,12 @@
             </dd>
             <dt id="byte_flow">
               <span class="name"><a href="byte_flow/byte_flow-library.html">byte_flow</a></span>             
+            </dt>
+            <dd>
+               
+            </dd>
+            <dt id="capitalize">
+              <span class="name"><a href="functions_strings_capitalize/functions_strings_capitalize-library.html">capitalize</a></span>             
             </dt>
             <dd>
                
@@ -100,8 +413,128 @@
             <dd>
                
             </dd>
+            <dt id="duplicate">
+              <span class="name"><a href="functions_arrays_duplicate/functions_arrays_duplicate-library.html">duplicate</a></span>             
+            </dt>
+            <dd>
+               
+            </dd>
+            <dt id="fill">
+              <span class="name"><a href="functions_arrays_fill/functions_arrays_fill-library.html">fill</a></span>             
+            </dt>
+            <dd>
+               
+            </dd>
+            <dt id="findIndex">
+              <span class="name"><a href="functions_arrays_findIndex/functions_arrays_findIndex-library.html">findIndex</a></span>             
+            </dt>
+            <dd>
+               
+            </dd>
+            <dt id="findLastIndex">
+              <span class="name"><a href="functions_arrays_findLastIndex/functions_arrays_findLastIndex-library.html">findLastIndex</a></span>             
+            </dt>
+            <dd>
+               
+            </dd>
+            <dt id="flatten">
+              <span class="name"><a href="functions_arrays_flatten/functions_arrays_flatten-library.html">flatten</a></span>             
+            </dt>
+            <dd>
+               
+            </dd>
+            <dt id="head">
+              <span class="name"><a href="functions_arrays_head/functions_arrays_head-library.html">head</a></span>             
+            </dt>
+            <dd>
+               
+            </dd>
+            <dt id="initial">
+              <span class="name"><a href="functions_arrays_initial/functions_arrays_initial-library.html">initial</a></span>             
+            </dt>
+            <dd>
+               
+            </dd>
+            <dt id="intersection">
+              <span class="name"><a href="functions_arrays_intersection/functions_arrays_intersection-library.html">intersection</a></span>             
+            </dt>
+            <dd>
+               
+            </dd>
+            <dt id="join">
+              <span class="name"><a href="functions_arrays_join/functions_arrays_join-library.html">join</a></span>             
+            </dt>
+            <dd>
+               
+            </dd>
+            <dt id="last">
+              <span class="name"><a href="functions_arrays_last/functions_arrays_last-library.html">last</a></span>             
+            </dt>
+            <dd>
+               
+            </dd>
+            <dt id="map">
+              <span class="name"><a href="functions_arrays_map/functions_arrays_map-library.html">map</a></span>             
+            </dt>
+            <dd>
+               
+            </dd>
+            <dt id="nth">
+              <span class="name"><a href="functions_arrays_nth/functions_arrays_nth-library.html">nth</a></span>             
+            </dt>
+            <dd>
+               
+            </dd>
+            <dt id="pairs">
+              <span class="name"><a href="functions_arrays_pairs/functions_arrays_pairs-library.html">pairs</a></span>             
+            </dt>
+            <dd>
+               
+            </dd>
             <dt id="slice">
               <span class="name"><a href="functions_arrays_slice/functions_arrays_slice-library.html">slice</a></span>             
+            </dt>
+            <dd>
+               
+            </dd>
+            <dt id="sortedIndex">
+              <span class="name"><a href="functions_arrays_sortedIndex/functions_arrays_sortedIndex-library.html">sortedIndex</a></span>             
+            </dt>
+            <dd>
+               
+            </dd>
+            <dt id="tail">
+              <span class="name"><a href="functions_arrays_tail/functions_arrays_tail-library.html">tail</a></span>             
+            </dt>
+            <dd>
+               
+            </dd>
+            <dt id="take">
+              <span class="name"><a href="functions_arrays_take/functions_arrays_take-library.html">take</a></span>             
+            </dt>
+            <dd>
+               
+            </dd>
+            <dt id="takeRight">
+              <span class="name"><a href="functions_arrays_takeRight/functions_arrays_takeRight-library.html">takeRight</a></span>             
+            </dt>
+            <dd>
+               
+            </dd>
+            <dt id="union">
+              <span class="name"><a href="functions_arrays_union/functions_arrays_union-library.html">union</a></span>             
+            </dt>
+            <dd>
+               
+            </dd>
+            <dt id="unzip">
+              <span class="name"><a href="functions_arrays_unzip/functions_arrays_unzip-library.html">unzip</a></span>             
+            </dt>
+            <dd>
+               
+            </dd>
+            <dt id="zip">
+              <span class="name"><a href="functions_arrays_zip/functions_arrays_zip-library.html">zip</a></span>             
             </dt>
             <dd>
                
