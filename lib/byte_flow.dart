@@ -21,4 +21,9 @@ export './functions/arrays/tail.dart';
 export './functions/arrays/take.dart';
 export './functions/arrays/takeRight.dart';
 export './functions/arrays/union.dart';
+export './functions/arrays/zip.dart';
 export './functions/arrays/unzip.dart';
+export './functions/arrays/duplicate.dart';
+
+// String
+export './functions/strings/capitalize.dart';

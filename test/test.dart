@@ -1,12 +1,7 @@
 import 'package:test/test.dart';
 import '../lib/byte_flow.dart';
 
-main() {
-  print(unzip([
-    ['a', 1, true],
-    ['b', 2, false]
-  ]));
-
+void _testArrayFunctions() {
   test('chunk', () {
     expect(chunk(['a', 'b', 'c', 'd'], 2), [
       ['a', 'b'],
@@ -128,4 +123,40 @@ main() {
         ]),
         [2, 1]);
   });
+
+  test('unzip', () {
+    expect(
+        unzip([
+          ['a', 1, true],
+          ['b', 2, false]
+        ]),
+        [
+          ['a', 'b'],
+          [1, 2],
+          [true, false]
+        ]);
+  });
+
+  test('zip', () {
+    expect(zip(['a', 'b', 'c'], [1, 2, 3]), [
+      ['a', 1],
+      ['b', 2],
+      ['c', 3]
+    ]);
+  });
+
+  test('duplicate', () {
+    expect(duplicate([10, 12, 9, 21, 1, 2, 10]), [10]);
+  });
+}
+
+void _testStringFunctions() {
+  test('capitalize', () {
+    expect(capitalize("hello world !"), "Hello world !");
+  });
+}
+
+main() {
+  _testArrayFunctions();
+  _testStringFunctions();
 }
