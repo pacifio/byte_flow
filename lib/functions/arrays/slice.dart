@@ -1,11 +1,11 @@
-/// Creates a slice of `array` from `start` up to, but not including, `end`.
+/// Creates a slice of `list` from `start` up to, but not including, `end`.
 /// Example
 /// ```dart
 /// _.slice([1, 2, 3, 4], 2);
 /// // Returns [3, 4]
 /// ```
-List slice(List array, [int start = 0, int end]) {
-  int length = array.length;
+List slice(List list, [int start = 0, int? end]) {
+  int length = list.length;
   if (length <= 0) {
     return [];
   }
@@ -21,9 +21,9 @@ List slice(List array, [int start = 0, int end]) {
   start >>= 0;
 
   int index = -1;
-  List result = new List(length);
+  List result = List.generate(length, (i) => i);
   while (++index < length) {
-    result[index] = array[index + start];
+    result[index] = list[index + start];
   }
 
   return result;

@@ -5,7 +5,7 @@
 /// // Returns { 'a': 1, 'b': 2 }
 /// ```
 Map pairs(List pairs) {
-  var index = -1, length = pairs == null ? 0 : pairs.length, result = {};
+  var index = -1, length = pairs.length, result = {};
 
   while (++index < length) {
     var pair = pairs[index];

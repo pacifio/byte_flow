@@ -1,20 +1,19 @@
-///  Creates an array of values by running each element of `array` thru `iteratee`.
-/// The iteratee is invoked with three arguments: (value, index, array).
+///  Creates an list of values by running each element of `list` thru `iteratee`.
+/// The iteratee is invoked with three arguments: (value, index, list).
 /// ```dart
-/// square(n, index, array) {
+/// square(n, index, list) {
 ///   return n*n;
 /// }
 /// map([4, 8], square);
 /// // Returns [16, 64]
 /// ```
-List map(
-    List array, Function(dynamic element, int index, List array) iteratee) {
+List map(List list, Function(dynamic element, int index, List list) iteratee) {
   int index = -1;
-  int length = array.length;
-  List result = List(length);
+  int length = list.length;
+  List result = List.generate(length, (i) => i);
 
   while (++index < length) {
-    result[index] = iteratee(array[index], index, array);
+    result[index] = iteratee(list[index], index, list);
   }
 
   return result;

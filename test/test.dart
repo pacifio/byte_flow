@@ -30,7 +30,7 @@ void _testArrayFunctions() {
   });
 
   test('fill', () {
-    expect(fill(List(3), 4), [4, 4, 4]);
+    expect(fill(List.generate(3, (i) => i), 4), [4, 4, 4]);
   });
 
   test('findIndex', () {
@@ -70,12 +70,12 @@ void _testArrayFunctions() {
 
   test('map', () {
     expect(
-        map([4, 8], (n, index, array) {
+        map([4, 8], (n, index, list) {
           return n * n;
         }),
         [16, 64]);
     expect(
-        map([4, 8], (n, index, array) {
+        map([4, 8], (n, index, list) {
           return n * 0;
         }),
         [0, 0]);

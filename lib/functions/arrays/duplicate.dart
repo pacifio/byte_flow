@@ -1,10 +1,10 @@
-/// Find duplicate items in an array
-List duplicate(List array) {
-  array.sort();
+/// Find duplicate items in an list
+List duplicate(List list) {
+  list.sort();
   final result = [];
-  for (int i = 0; i < array.length - 1; i++) {
-    if (array[i + 1] == array[i]) {
-      result.add(array[i]);
+  for (int i = 0; i < list.length - 1; i++) {
+    if (list[i + 1] == list[i]) {
+      result.add(list[i]);
     }
   }
 

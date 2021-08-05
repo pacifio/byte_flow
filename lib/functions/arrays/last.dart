@@ -1,10 +1,10 @@
-/// Gets the last element of array.
+/// Gets the last element of list.
 /// Uses dart's ```List.last``` property
 /// Example
 /// ```dart
 /// _.last(["Dart", "Javascript", "Swift"]);
 /// // Returns "Swift"
 /// ```
-dynamic last(List array) {
-  return array.last;
+dynamic last(List list) {
+  return list.last;
 }

@@ -1,6 +1,6 @@
 import 'package:byte_flow/functions/arrays/slice.dart';
 
-/// Creates a slice of array with n elements taken from the end.
+/// Creates a slice of list with n elements taken from the end.
 /// Example
 /// ```dart
 /// takeRight([1, 2, 3])
@@ -15,11 +15,11 @@ import 'package:byte_flow/functions/arrays/slice.dart';
 /// takeRight([1, 2, 3], 0)
 /// // => []
 /// ```
-List takeRight(List array, [int n = 1]) {
-  if (array.isEmpty) {
+List takeRight(List list, [int n = 1]) {
+  if (list.isEmpty) {
     return [];
   }
 
-  n = array.length - n;
-  return slice(array, n < 0 ? 0 : n, array.length);
+  n = list.length - n;
+  return slice(list, n < 0 ? 0 : n, list.length);
 }

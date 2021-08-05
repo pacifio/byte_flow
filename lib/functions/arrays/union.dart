@@ -1,4 +1,4 @@
-/// Creates an array of unique values, in order
+/// Creates an list of unique values, in order
 ///
 /// Example
 /// ```dart

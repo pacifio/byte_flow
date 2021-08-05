@@ -1,4 +1,4 @@
-/// Creates an array of unique values that are included in all given arrays
+/// Creates an list of unique values that are included in all given arrays
 /// Example
 /// ```dart
 /// final lists = [

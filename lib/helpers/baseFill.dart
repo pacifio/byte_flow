@@ -1,6 +1,6 @@
 /// he base implementation of `fill` without an iteratee call guard.
-List baseFill(List array, value, start, end) {
-  int length = array.length;
+List baseFill(List list, value, start, end) {
+  int length = list.length;
   if (start < 0) {
     start = -start > length ? 0 : (length + start);
   }
@@ -10,7 +10,7 @@ List baseFill(List array, value, start, end) {
   }
   end = start > end ? 0 : end;
   while (start < end) {
-    array[start++] = value;
+    list[start++] = value;
   }
-  return array;
+  return list;
 }

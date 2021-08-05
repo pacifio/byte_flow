@@ -4,6 +4,6 @@
 /// _.findIndex(["Jack", "Yash", "Adib", "Alex"], "Adib");
 /// // Returns 2
 /// ```
-int findIndex(List array, dynamic element) {
-  return array.indexOf(element);
+int findIndex(List list, dynamic element) {
+  return list.indexOf(element);
 }
