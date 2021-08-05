@@ -6,11 +6,11 @@ Byte flow is a pure dart , dependency less library that provides common utility 
 
 ## Contents
 
-[Install](##Install)
-[Functions](##Functions)
-* [Array](##Array)
-* [String](##String)
-[TODO](##TODO)
+- [Install](#install)
+- [Functions](#functions)
+- [Array](#array)
+- [String](#string)
+- [TODO](#todo)
 
 ## Install
 
